@@ -20,18 +20,9 @@
 </template>
 
 <script>
-import { formatImageUrl } from '@/helper';
-
 export default {
   name: 'AppLanguage',
-  computed: {
-    image() {
-      return formatImageUrl(`icons/${this.$i18n.locale}.png`);
-    },
-  },
   methods: {
-    formatImageUrl,
-
     /**
      * @method to change the current language
      */

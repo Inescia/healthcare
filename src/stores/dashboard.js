@@ -11,6 +11,9 @@ export const useDashboard = defineStore('dashboard', {
         (item.firstName + ' ' + item.lastName + ' ' + item.medicalRecordNumber).includes(input),
       );
     },
+    getPatientById: (state) => (id) => {
+      return state.patientList.find((item) => item.id === id);
+    },
   },
 
   actions: {
@@ -71,7 +74,7 @@ export const useDashboard = defineStore('dashboard', {
       ];
     },
 
-    updatePatient(id, newData) {
+    updatePatientData(id, newData) {
       const index = this.patientList.findIndex((patient) => patient.id === id);
       if (index !== -1) {
         this.patientList[index] = newData;

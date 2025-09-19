@@ -15,11 +15,11 @@
           clearable
           flat
         />
-        <PatientCard v-for="patient in patientList" :key="patient.id" :data="patient" />
+        <PatientCard v-for="patient in filteredPatientList" :key="patient.id" :data="patient" />
       </section>
       <!-- GRAPH -->
       <section class="flex-1-1-0">
-        <GraphCard v-if="selectedPatientId" />
+        <GraphCard v-if="selectedPatientId" :data="selectedPatient" />
         <p v-else class="ma-8 text-center">{{ $t('TITLES.SELECT_PATIENT') }}</p>
       </section>
     </main>
@@ -47,6 +47,9 @@ export default {
       return this.searchInput
         ? this.store.getFilteredPatientList(this.searchInput)
         : this.store.patientList;
+    },
+    selectedPatient() {
+      return this.selectedPatientId ? this.store.getPatientById(this.selectedPatientId) : null;
     },
   },
 

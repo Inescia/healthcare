@@ -8,7 +8,9 @@ export const useDashboard = defineStore('dashboard', {
   getters: {
     getFilteredPatientList: (state) => (input) => {
       return state.patientList.filter((item) =>
-        (item.firstName + ' ' + item.lastName + ' ' + item.medicalRecordNumber).includes(input),
+        (item.firstName + ' ' + item.lastName + ' ' + item.medicalRecordNumber)
+          .toLowerCase()
+          .includes(input.toLowerCase()),
       );
     },
     getPatientById: (state) => (id) => {

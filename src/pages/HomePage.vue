@@ -8,14 +8,20 @@
     <main class="d-flex flex-column flex-md-row ma-8 ga-8">
       <!-- PATIENT LIST -->
       <section class="flex-1-1-0 d-flex flex-column col-6">
-        <v-autocomplete
-          :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']"
+        <v-text-field
+          v-model="searchInput"
           :label="$t('FIELDS.search.LABEL')"
           bg-color="transparent"
           clearable
           flat
         />
-        <PatientCard v-for="patient in filteredPatientList" :key="patient.id" :data="patient" />
+        <PatientCard
+          v-for="patient in filteredPatientList"
+          :key="patient.id"
+          :data="patient"
+          @selectPatient="selectedPatientId = $event"
+          @editPatient="showEditModal = true"
+        />
       </section>
       <!-- GRAPH -->
       <section class="flex-1-1-0">
@@ -38,6 +44,7 @@ export default {
     return {
       searchInput: '',
       selectedPatientId: null,
+      showEditModal: false,
       store: useDashboard(),
     };
   },

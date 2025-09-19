@@ -1,5 +1,9 @@
 <template>
-  <v-card class="my-3 px-4 py-3 cursor-pointer" elevation="3">
+  <v-card
+    class="my-3 px-4 py-3 cursor-pointer"
+    elevation="3"
+    @click="$emit('selectPatient', data.id)"
+  >
     <div class="d-flex flex-column ga-4">
       <div class="d-flex justify-space-between align-center">
         <div class="d-flex ga-4 align-center">
@@ -11,7 +15,7 @@
             alt="edit icon"
             height="15"
             src="../assets/icons/edit.png"
-            @onClick="showEditModal"
+            @click="$emit('editPatient', data.id)"
           />
         </div>
         <span :class="`text-${getStatusColor} text-bold`">{{ $t(`STATUS.${getStatus}`) }}</span>
@@ -61,11 +65,6 @@ export default {
         default:
           return 'green';
       }
-    },
-  },
-  methods: {
-    showEditModal() {
-      // @TODO
     },
   },
 };

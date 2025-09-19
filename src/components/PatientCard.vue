@@ -24,17 +24,17 @@
         <!-- @TODO: factorize with a v-for -->
         <div class="d-flex align-center mr-2 ga-1">
           <img alt="heartRate icon" height="40" src="../assets/icons/heartRate.png" />
-          <span>{{ data.vitals.heartRate[0] }}</span>
+          <span>{{ getValue(data.vitals.heartRate) }}</span>
           <span>{{ $t(`FIELDS.vitals.heartRate.UNIT`) }}</span>
         </div>
         <div class="d-flex align-center mr-2 ga-1">
           <img alt="bloodPressure icon" height="35" src="../assets/icons/bloodPressure.png" />
-          <span>{{ Object.values(data.vitals.bloodPressure[0]).join('/') }}</span>
+          <span>{{ Object.values(getValue(data.vitals.bloodPressure)).join('/') }}</span>
           <span>{{ $t(`FIELDS.vitals.bloodPressure.UNIT`) }}</span>
         </div>
         <div class="d-flex align-center mr-2 ga-1">
           <img alt="temperature icon" height="35" src="../assets/icons/temperature.png" />
-          <span>{{ data.vitals.temperature[0] }}</span>
+          <span>{{ getValue(data.vitals.temperature) }}</span>
           <span>{{ $t(`FIELDS.vitals.temperature.UNIT`) }}</span>
         </div>
       </div>
@@ -44,6 +44,7 @@
 
 <script>
 import { useDashboard } from '@/stores/dashboard';
+import { getPatientStatus, getValue } from '@/utils.js';
 
 export default {
   name: 'PatientCard',
@@ -58,7 +59,12 @@ export default {
 
   computed: {
     getStatus() {
-      return this.store.getPatientStatus(this.data);
+      return getPatientStatus(
+        this.data.age,
+        getValue(this.data.vitals.heartRate),
+        getValue(this.data.vitals.bloodPressure),
+        getValue(this.data.vitals.temperature),
+      );
     },
     getStatusColor() {
       switch (this.getStatus) {
@@ -71,5 +77,9 @@ export default {
       }
     },
   },
+
+  methods:{
+    getValue
+  }
 };
 </script>

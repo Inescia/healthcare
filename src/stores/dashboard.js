@@ -16,39 +16,6 @@ export const useDashboard = defineStore('dashboard', {
     getPatientById: (state) => (id) => {
       return state.patientList.find((item) => item.id === id);
     },
-    // @TODO: move this logic to a utils file (and improve it)
-    getPatientStatus: () => (patient) => {
-      var count = 0;
-      const { heartRate, bloodPressure, temperature } = patient.vitals;
-
-      // Heart rate
-      if (patient.age < 18 && (heartRate < 80 || heartRate > 120)) count++;
-      else if (patient.age < 65 && (heartRate < 60 || heartRate > 80)) count++;
-      else if (patient.age >= 65 && (heartRate < 70 || heartRate > 90)) count++;
-
-      // Blood pressure
-      if (
-        patient.age < 18 &&
-        (bloodPressure.systolic < 120 ||
-          bloodPressure.systolic > 140 ||
-          bloodPressure.diastolic < 60 ||
-          bloodPressure.diastolic > 80)
-      )
-        count++;
-      else if (
-        patient.age >= 18 &&
-        (bloodPressure.systolic < 150 ||
-          bloodPressure.systolic > 170 ||
-          bloodPressure.diastolic != 90)
-      )
-        count++;
-
-      // Temperature
-      if (temperature < 36.3 || temperature > 37.5) count++;
-      if (temperature < 29 || temperature > 42.6) count++;
-
-      return count == 0 ? 'stable' : count == 1 ? 'instable' : 'critical';
-    },
   },
 
   actions: {

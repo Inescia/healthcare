@@ -7,7 +7,7 @@
 
     <main class="d-flex flex-column flex-md-row ma-8 ga-8">
       <!-- PATIENT LIST -->
-      <section class="flex-1-1-0 d-flex flex-column col-6">
+      <section class="flex-1-1-0 d-flex flex-column col-6 justify-start">
         <v-text-field
           v-model="searchInput"
           :label="$t('FIELDS.search.LABEL')"

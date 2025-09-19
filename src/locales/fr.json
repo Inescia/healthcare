@@ -1,0 +1,55 @@
+{
+  "BUTTONS": { "VALIDATE": "Valider", "CANCEL": "Annuler" },
+
+  "FIELDS": {
+    "search": {
+      "LABEL": "Rechercher par nom ou numéro de dossier médical"
+    },
+    "firstName": {
+      "LABEL": "Prénom"
+    },
+    "lastName": {
+      "LABEL": "Nom de famille"
+    },
+    "age": {
+      "LABEL": "Âge",
+      "UNIT": "ans"
+    },
+    "medicalRecordNumber": {
+      "LABEL": "Numéro de dossier médical"
+    },
+    "vitals": {
+      "heartRate": {
+        "LABEL": "Fréquence cardiaque",
+        "UNIT": "bpm"
+      },
+      "bloodPressure": {
+        "LABEL": "Tension artérielle",
+        "UNIT": "mmHg"
+      },
+      "temperature": {
+        "LABEL": "Température",
+        "UNIT": "°C"
+      },
+      "oxygenSaturation": {
+        "LABEL": "Saturation en oxygène",
+        "UNIT": "%"
+      }
+    }
+  },
+
+  "NOTIFICATIONS": {
+    "CRITICAL_STATUS": "Le patient ${firstName} ${lastName} est dans un état critique !"
+  },
+
+  "STATUS": {
+    "stable": "Stable",
+    "instable": "Instable",
+    "critical": "Critique"
+  },
+
+  "TITLES": {
+    "EDIT_PATIENT": "Modifier les informations du patient",
+    "SELECT_PATIENT": "Sélectionner un patient pour voir les détails"
+  }
+}

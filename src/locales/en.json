@@ -1,0 +1,55 @@
+{
+  "BUTTONS": { "VALIDATE": "Validate", "CANCEL": "Cancel" },
+
+  "FIELDS": {
+    "search": {
+      "LABEL": "Search by name or medical record number"
+    },
+    "firstName": {
+      "LABEL": "First Name"
+    },
+    "lastName": {
+      "LABEL": "Last Name"
+    },
+    "age": {
+      "LABEL": "Age",
+      "UNIT": "years"
+    },
+    "medicalRecordNumber": {
+      "LABEL": "Medical Record Number"
+    },
+    "vitals": {
+      "heartRate": {
+        "LABEL": "Heart Rate",
+        "UNIT": "bpm"
+      },
+      "bloodPressure": {
+        "LABEL": "Blood Pressure",
+        "UNIT": "mmHg"
+      },
+      "temperature": {
+        "LABEL": "Temperature",
+        "UNIT": "°C"
+      },
+      "oxygenSaturation": {
+        "LABEL": "Oxygen Saturation",
+        "UNIT": "%"
+      }
+    }
+  },
+
+  "NOTIFICATIONS": {
+    "CRITICAL_STATUS": "The patient ${firstName} ${lastName} has a critical status!"
+  },
+
+  "STATUS": {
+    "stable": "Stable",
+    "instable": "Instable",
+    "critical": "Critical"
+  },
+
+  "TITLES": {
+    "EDIT_PATIENT": "Edit Patient Information",
+    "SELECT_PATIENT": "Select a Patient to view details"
+  }
+}

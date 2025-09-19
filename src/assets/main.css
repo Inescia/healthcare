@@ -1,0 +1,22 @@
+#app {
+  min-height: 100vh;
+  font-family: 'Avenir', sans-serif;
+  font-color: #4b545d;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Avenir', sans-serif;
+  font-weight: normal;
+  color: #232323;
+}
+
+p {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #4b545d;
+}

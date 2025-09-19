@@ -70,9 +70,13 @@ export default {
     };
   },
 
-  mounted() {
-    console.log(this.item);
-    this.localItem = { ...this.item };
+  watch: {
+    item: {
+      immediate: true,
+      handler(newVal) {
+        this.localItem = { ...newVal };
+      },
+    },
   },
 
   methods: {

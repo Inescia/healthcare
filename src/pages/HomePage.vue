@@ -29,7 +29,11 @@
         <p v-else class="ma-8 text-center">{{ $t('TITLES.SELECT_PATIENT') }}</p>
       </section>
     </main>
-    <EditModal v-model="showEditModal" :item="selectedPatient" @close="showEditModal = false" />
+    <EditModal
+      v-model="showEditModal"
+      :item="this.store.getPatientById(this.selectedPatientId)"
+      @close="showEditModal = false"
+    />
   </div>
 </template>
 

@@ -27,7 +27,6 @@ export default {
      * @method to change the current language
      */
     toggleLangage(targetLanguage) {
-      console.log(targetLanguage);
       this.$i18n.locale = targetLanguage === 'en' ? 'fr' : 'en';
     },
   },

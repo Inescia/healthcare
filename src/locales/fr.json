@@ -42,6 +42,11 @@
     "CRITICAL_STATUS": "Le patient ${firstName} ${lastName} est dans un état critique !"
   },
 
+  "RULES": {
+    "REQUIRED": "Ce champ est requis",
+    "NUMBER": "Ce champ doit être un nombre"
+  },
+
   "STATUS": {
     "stable": "Stable",
     "instable": "Instable",

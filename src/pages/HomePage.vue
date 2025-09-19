@@ -20,7 +20,7 @@
           :key="patient.id"
           :data="patient"
           @selectPatient="selectedPatientId = $event"
-          @editPatient="showEditModal = true"
+          @editPatient="openModal($event)"
         />
       </section>
       <!-- GRAPH -->
@@ -29,17 +29,19 @@
         <p v-else class="ma-8 text-center">{{ $t('TITLES.SELECT_PATIENT') }}</p>
       </section>
     </main>
+    <EditModal v-model="showEditModal" :item="selectedPatient" @close="showEditModal = false" />
   </div>
 </template>
 
 <script>
 import GraphCard from '@/components/GraphCard.vue';
 import PatientCard from '@/components/PatientCard.vue';
+import EditModal from '@/modals/EditModal.vue';
 import { useDashboard } from '@/stores/dashboard';
 
 export default {
   name: 'HomePage',
-  components: { GraphCard, PatientCard },
+  components: { EditModal, GraphCard, PatientCard },
   data() {
     return {
       searchInput: '',
@@ -64,6 +66,15 @@ export default {
     this.store.fetchPatientList();
   },
 
-  methods: {},
+  methods: {
+    openModal(patientId) {
+      this.selectedPatientId = patientId;
+      setTimeout(() => {
+        this.$nextTick(() => {
+          this.showEditModal = true;
+        });
+      }, 100);
+    },
+  },
 };
 </script>

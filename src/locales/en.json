@@ -42,6 +42,11 @@
     "CRITICAL_STATUS": "The patient ${firstName} ${lastName} has a critical status!"
   },
 
+  "RULES": {
+    "REQUIRED": "This field is required",
+    "NUMBER": "This field must be a number"
+  },
+
   "STATUS": {
     "stable": "Stable",
     "instable": "Instable",
